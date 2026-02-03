@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b27yxfpkfvoha"]
+[gd_scene load_steps=10 format=3 uid="uid://b27yxfpkfvoha"]
 
 [ext_resource type="Shader" uid="uid://lio2wmbue2of" path="res://lessons/chest/group_outline.gdshader" id="1_12as2"]
 [ext_resource type="Script" uid="uid://ct2mll12nooce" path="res://lessons/chest/chest.gd" id="1_65g6b"]
@@ -15,6 +15,14 @@ shader_parameter/viewport_scale = Vector2(1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4q7cj"]
 size = Vector2(100, 86)
+
+[sub_resource type="Animation" id="Animation_65g6b"]
+resource_name = "open"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4q7cj"]
+_data = {
+&"open": SubResource("Animation_65g6b")
+}
 
 [node name="Chest" type="Area2D"]
 script = ExtResource("1_65g6b")
@@ -38,3 +46,8 @@ texture = ExtResource("3_65g6b")
 visible = false
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_4q7cj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4q7cj")
+}
